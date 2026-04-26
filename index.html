@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Cell Biology | କୋଷ ଜୀବବିଜ୍ଞାନ | Odia-English Bilingual</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Noto Sans Oriya', 'Roboto', system-ui, sans-serif;
+      background: linear-gradient(145deg, #f0f9e8 0%, #d9f0c5 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      margin: 0;
+    }
+
+    .mobile-frame {
+      max-width: 480px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(18px);
+      border-radius: 48px;
+      box-shadow: 0 30px 50px rgba(0, 40, 20, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+      padding: 18px 14px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border: 1px solid rgba(120, 160, 90, 0.4);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px;
+    }
+
+    .header h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #1e3b2f;
+      background: rgba(255, 255, 200, 0.7);
+      padding: 6px 18px;
+      border-radius: 40px;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .header h1 span {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #2d5a3b;
+    }
+
+    .page-indicator {
+      background: #ecf7e0;
+      border-radius: 30px;
+      padding: 6px 16px;
+      font-weight: 600;
+      color: #1e4a2c;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .card {
+      background: #fffffffa;
+      border-radius: 32px;
+      padding: 20px 16px;
+      box-shadow: 0 12px 28px rgba(30, 60, 20, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid #c8e0b0;
+      transition: all 0.2s ease;
+    }
+
+    .image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .cell-image {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      background: #f4fdec;
+      border-radius: 28px;
+      padding: 8px;
+      border: 2px dashed #7aa365;
+      background: radial-gradient(circle at 20% 30%, #f6ffe6, #dcedc4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cell-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      display: block;
+      object-fit: contain;
+      background: white;
+    }
+
+    .bilingual-text {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #1e3a1e;
+      text-align: center;
+      background: #f3ffe6;
+      padding: 12px 10px;
+      border-radius: 24px;
+      margin: 10px 0 5px;
+      font-weight: 500;
+    }
+
+    .odia {
+      font-family: 'Noto Sans Oriya', 'Arial Unicode MS', sans-serif;
+      font-weight: 500;
+      color: #1b4d2c;
+      font-size: 1.2rem;
+    }
+
+    .english {
+      font-weight: 500;
+      color: #2c4b2c;
+      text-transform: capitalize;
+    }
+
+    .flashcard-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 6px;
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .organelle-item {
+      background: #f1fae5;
+      border-radius: 20px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border-left: 6px solid #519657;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      flex-wrap: wrap;
+    }
+
+    .organelle-icon {
+      font-size: 2rem;
+      background: #fff;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,80,20,0.2);
+    }
+
+    .organelle-text {
+      flex: 1;
+      font-size: 0.9rem;
+    }
+
+    .organelle-text strong {
+      font-size: 1rem;
+      color: #1f4f2b;
+      display: block;
+    }
+
+    .compare-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 10px 0;
+    }
+
+    .compare-item {
+      background: #eaf7dd;
+      border-radius: 18px;
+      padding: 12px;
+      flex: 1 1 120px;
+      text-align: center;
+      font-weight: 600;
+      border: 1px solid #9fcc8b;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .nav-btn {
+      background: #2e5e3b;
+      border: none;
+      color: white;
+      font-weight: bold;
+      padding: 14px 24px;
+      border-radius: 36px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #367a48, #1f4529);
+      box-shadow: 0 8px 16px rgba(30, 70, 30, 0.3);
+      transition: 0.2s;
+      border: 1px solid #b9e6a0;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-btn:active {
+      transform: scale(0.95);
+      background: #1d3e24;
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.5;
+      pointer-events: none;
+      background: #888;
+      box-shadow: none;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .flex-center {
+      display: flex;
+      justify-content: center;
+    }
+
+    @media (max-width: 400px) {
+      .organelle-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="mobile-frame" id="app">
+  <div class="header">
+    <h1>
+      🔬 କୋଷ <span>Cell</span>
+    </h1>
+    <div class="page-indicator" id="pageNumber">1 / 6</div>
+  </div>
+
+  <!-- dynamic content container -->
+  <div id="contentContainer" class="card"></div>
+
+  <div class="nav-buttons">
+    <button class="nav-btn" id="prevBtn" disabled>◀ ପୂର୍ବ</button>
+    <button class="nav-btn" id="nextBtn">ପରବର୍ତ୍ତୀ ▶</button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // ---------- BILINGUAL DATA ----------
+    const pages = [];
+
+    // PAGE 0: Animal cell labelled image (using Wikimedia link)
+    pages.push({
+      type: 'animal-image',
+      titleOdia: 'ପ୍ରାଣୀ କୋଷ (Animal Cell)',
+      titleEng: 'Animal Cell',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/Structure_of_animal_cell.JPG'
+    });
+
+    // PAGE 1: Animal cell organelles flashcard
+    pages.push({
+      type: 'organelles-animal',
+      titleOdia: 'ପ୍ରାଣୀ କୋଷ ଅଙ୍ଗାଣୁ',
+      titleEng: 'Animal Cell Organelles',
+      items: [
+        { name: 'Nucleus', odia: 'ନ୍ୟୁକ୍ଲିୟସ', descOdia: 'କୋଷର ନିୟନ୍ତ୍ରଣ କେନ୍ଦ୍ର, DNA ଧାରଣ କରେ ।', descEng: 'Control center, contains DNA.' },
+        { name: 'Mitochondria', odia: 'ମାଇଟୋକଣ୍ଡ୍ରିଆ', descOdia: 'ଶକ୍ତି ଉତ୍ପାଦନ କରେ, ATP ତିଆରି କରେ ।', descEng: 'Powerhouse, produces ATP energy.' },
+        { name: 'Ribosome', odia: 'ରାଇବୋଜୋମ', descOdia: 'ପ୍ରୋଟିନ୍ ସଂଶ୍ଳେଷଣ କରେ ।', descEng: 'Makes proteins.' },
+        { name: 'Golgi apparatus', odia: 'ଗଲଜି ବସ୍ତୁ', descOdia: 'ପ୍ରୋଟିନ୍ ପ୍ୟାକେଜିଂ ଓ ପରିବହନ ।', descEng: 'Packages & transports proteins.' },
+        { name: 'Lysosome', odia: 'ଲାଇସୋଜୋମ', descOdia: 'ପାଚନ କାର୍ଯ୍ୟ, ବର୍ଜ୍ୟ ନିଷ୍କାସନ ।', descEng: 'Digestion & waste removal.' }
+      ]
+    });
+
+    // PAGE 2: Plant cell labelled image (using Wikimedia SVG link)
+    pages.push({
+      type: 'plant-image',
+      titleOdia: 'ଉଦ୍ଭିଦ କୋଷ (Plant Cell)',
+      titleEng: 'Plant Cell',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d8/Plant_cell_structure-en.svg'
+    });
+
+    // PAGE 3: Plant cell organelles flashcard
+    pages.push({
+      type: 'organelles-plant',
+      titleOdia: 'ଉଦ୍ଭିଦ କୋଷ ଅଙ୍ଗାଣୁ',
+      titleEng: 'Plant Cell Organelles',
+      items: [
+        { name: 'Cell Wall', odia: 'କୋଷ ପ୍ରାଚୀର', descOdia: 'ସେଲୁଲୋଜ ନିର୍ମିତ ଦୃଢ଼ ଆବରଣ ।', descEng: 'Rigid cellulose outer layer.' },
+        { name: 'Chloroplast', odia: 'କ୍ଲୋରୋପ୍ଲାଷ୍ଟ', descOdia: 'ସୂର୍ଯ୍ୟାଲୋକ ବ୍ୟବହାର କରି ଖାଦ୍ୟ ପ୍ରସ୍ତୁତ କରେ ।', descEng: 'Photosynthesis, makes food.' },
+        { name: 'Large Vacuole', odia: 'ବୃହତ ଭାକୁଓଲ', descOdia: 'ଜଳ ଓ ପୋଷକ ସଂରକ୍ଷଣ, ଚାପ ବଜାୟ ରଖେ ।', descEng: 'Stores water, maintains turgor.' },
+        { name: 'Nucleus', odia: 'ନ୍ୟୁକ୍ଲିୟସ', descOdia: 'ଜେନେଟିକ୍ ପଦାର୍ଥ ଧାରଣ କରେ ।', descEng: 'Holds genetic material.' },
+        { name: 'Mitochondria', odia: 'ମାଇଟୋକଣ୍ଡ୍ରିଆ', descOdia: 'ଶ୍ୱସନ ଦ୍ୱାରା ଶକ୍ତି ପ୍ରଦାନ ।', descEng: 'Energy through respiration.' }
+      ]
+    });
+
+    // PAGE 4: Compare plant and animal cell
+    pages.push({
+      type: 'compare',
+      titleOdia: 'ତୁଳନା: ପ୍ରାଣୀ ବନାମ ଉଦ୍ଭିଦ',
+      titleEng: 'Compare: Animal vs Plant',
+      compareData: [
+        { feature: 'Cell Wall', animal: 'Absent', plant: 'Present (cellulose)' },
+        { feature: 'Chloroplast', animal: 'Absent', plant: 'Present' },
+        { feature: 'Vacuole', animal: 'Small temporary', plant: 'Large central' },
+        { feature: 'Shape', animal: 'Irregular', plant: 'Fixed rectangular' }
+      ]
+    });
+
+    // PAGE 5: Other organelles (detailed list)
+    pages.push({
+      type: 'other-organelles',
+      titleOdia: 'ଅନ୍ୟାନ୍ୟ ଅଙ୍ଗାଣୁ ଓ ଗଠନ',
+      titleEng: 'Other Organelles & Structures',
+      items: [
+        { name: 'Nucleolus', odia: 'ନ୍ୟୁକ୍ଲିଓଲସ', descOdia: 'ରାଇବୋଜୋମ ଉତ୍ପାଦନ କରେ ।', descEng: 'Produces ribosomes.' },
+        { name: 'Nucleus', odia: 'ନ୍ୟୁକ୍ଲିୟସ', descOdia: 'କୋଷ କାର୍ଯ୍ୟ ନିୟନ୍ତ୍ରଣ କରେ ।', descEng: 'Controls cell activities.' },
+        { name: 'Ribosome', odia: 'ରାଇବୋଜୋମ', descOdia: 'ପ୍ରୋଟିନ୍ ସଂଶ୍ଳେଷଣ ସ୍ଥଳ ।', descEng: 'Site of protein synthesis.' },
+        { name: 'Vesicle', odia: 'ଭେସିକଲ', descOdia: 'ପଦାର୍ଥ ପରିବହନ କରେ ।', descEng: 'Transports materials.' },
+        { name: 'Rough ER', odia: 'ରଫ୍ ଏଣ୍ଡୋପ୍ଲାଜମିକ୍ ରେଟିକୁଲମ', descOdia: 'ରାଇବୋଜୋମ ଯୁକ୍ତ, ପ୍ରୋଟିନ୍ ପ୍ରକ୍ରିୟାକରଣ ।', descEng: 'Studded with ribosomes, processes proteins.' },
+        { name: 'Golgi apparatus', odia: 'ଗଲଜି ବସ୍ତୁ', descOdia: 'ପ୍ୟାକେଜିଂ ଓ ଲିପିଡ ପରିବହନ ।', descEng: 'Packages lipids & proteins.' },
+        { name: 'Cytoskeleton', odia: 'ସାଇଟୋସ୍କେଲିଟନ', descOdia: 'କୋଷକୁ ଆକାର ଓ ସହାୟତା ଦିଏ ।', descEng: 'Provides shape & support.' },
+        { name: 'Smooth ER', odia: 'ସ୍ମୁଥ୍ ଏଣ୍ଡୋପ୍ଲାଜମିକ୍ ରେଟିକୁଲମ', descOdia: 'ଲିପିଡ ସଂଶ୍ଳେଷଣ, ଡିଟକ୍ସ ।', descEng: 'Lipid synthesis, detox.' },
+        { name: 'Mitochondria', odia: 'ମାଇଟୋକଣ୍ଡ୍ରିଆ', descOdia: 'ATP ଶକ୍ତି ଉତ୍ପାଦନ ।', descEng: 'Energy (ATP) production.' },
+        { name: 'Vacuole', odia: 'ଭାକୁଓଲ', descOdia: 'ସଂରକ୍ଷଣ ଓ ବର୍ଜ୍ୟ ପରିଚାଳନା ।', descEng: 'Storage and waste management.' },
+        { name: 'Cytosol', odia: 'ସାଇଟୋସୋଲ', descOdia: 'ତରଳ ମାଧ୍ୟମ, ରାସାୟନିକ ପ୍ରତିକ୍ରିୟା ।', descEng: 'Fluid medium for reactions.' },
+        { name: 'Lysosome', odia: 'ଲାଇସୋଜୋମ', descOdia: 'ପାଚନ ଏନଜାଇମ ଧାରଣ ।', descEng: 'Contains digestive enzymes.' },
+        { name: 'Centriole', odia: 'ସେଣ୍ଟ୍ରିଓଲ', descOdia: 'କୋଷ ବିଭାଜନରେ ସାହାଯ୍ୟ କରେ ।', descEng: 'Helps in cell division.' }
+      ]
+    });
+
+    const contentDiv = document.getElementById('contentContainer');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const pageIndicator = document.getElementById('pageNumber');
+    let currentPage = 0;
+    const totalPages = pages.length;
+
+    function renderPage(index) {
+      if (index < 0 || index >= totalPages) return;
+      const page = pages[index];
+      let html = '';
+
+      const titleHtml = `<div style="text-align:center; margin-bottom:10px;">
+        <div style="font-size:1.5rem; font-weight:700; color:#1e4620;">${page.titleOdia}</div>
+        <div style="font-size:1rem; color:#345e37;">${page.titleEng}</div>
+      </div>`;
+
+      if (page.type === 'animal-image') {
+        html = titleHtml + `
+          <div class="image-container">
+            <div class="cell-image">
+              <img src="${page.imageUrl}" alt="Animal cell structure" style="width:100%; max-width:300px; border-radius:20px;" />
+            </div>
+            <div class="bilingual-text">
+              <span class="odia">ପ୍ରାଣୀ କୋଷ: କୋଷପରଦା, ନ୍ୟୁକ୍ଲିୟସ, ମାଇଟୋକଣ୍ଡ୍ରିଆ ।</span><br>
+              <span class="english">Animal cell: membrane, nucleus, mitochondria.</span>
+            </div>
+          </div>`;
+      } else if (page.type === 'plant-image') {
+        html = titleHtml + `
+          <div class="image-container">
+            <div class="cell-image">
+              <img src="${page.imageUrl}" alt="Plant cell structure" style="width:100%; max-width:300px; border-radius:20px;" />
+            </div>
+            <div class="bilingual-text">
+              <span class="odia">ଉଦ୍ଭିଦ କୋଷ: କୋଷପ୍ରାଚୀର, କ୍ଲୋରୋପ୍ଲାଷ୍ଟ, ବଡ଼ ଭାକୁଓଲ ।</span><br>
+              <span class="english">Plant cell: cell wall, chloroplast, large vacuole.</span>
+            </div>
+          </div>`;
+      } else if (page.type === 'organelles-animal' || page.type === 'organelles-plant' || page.type === 'other-organelles') {
+        let itemsHtml = '';
+        page.items.forEach(item => {
+          itemsHtml += `
+            <div class="organelle-item">
+              <div class="organelle-icon">🧬</div>
+              <div class="organelle-text">
+                <strong>${item.name} (${item.odia})</strong>
+                <div><span class="odia">${item.descOdia}</span></div>
+                <div><span class="english">${item.descEng}</span></div>
+              </div>
+            </div>`;
+        });
+        html = titleHtml + `<div class="flashcard-grid">${itemsHtml}</div>`;
+      } else if (page.type === 'compare') {
+        let compareHtml = '';
+        page.compareData.forEach(c => {
+          compareHtml += `
+            <div class="compare-item">
+              <div style="font-weight:700;">${c.feature}</div>
+              <div style="display:flex; justify-content:space-between; gap:4px; font-size:0.85rem;">
+                <span>🐾 ${c.animal}</span> <span>🌿 ${c.plant}</span>
+              </div>
+            </div>`;
+        });
+        html = titleHtml + `
+          <div class="bilingual-text" style="margin-bottom:12px;">
+            <span class="odia">ପ୍ରାଣୀ ଓ ଉଦ୍ଭିଦ କୋଷ ମଧ୍ୟରେ ପାର୍ଥକ୍ୟ</span><br>
+            <span class="english">Differences between animal & plant cells</span>
+          </div>
+          <div class="compare-box">${compareHtml}</div>`;
+      }
+
+      contentDiv.innerHTML = html;
+      pageIndicator.textContent = `${index+1} / ${totalPages}`;
+      prevBtn.disabled = (index === 0);
+      nextBtn.disabled = (index === totalPages-1);
+    }
+
+    function goToPage(index) {
+      if (index >= 0 && index < totalPages) {
+        currentPage = index;
+        renderPage(currentPage);
+      }
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 0) goToPage(currentPage - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentPage < totalPages - 1) goToPage(currentPage + 1);
+    });
+
+    // Initial render
+    renderPage(0);
+  })();
+</script>
+</body>
+</html>
